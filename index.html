@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>Névjegykártya</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img id="profil_pic" src="https://i.imgur.com/iVvXfTK.jpg" alt="Profilkép">
+      <h1>Balogh Tamás</h1>
+      <p id="job">Értékesítő</p>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+        </div>
+        <p class="contact-value"> <a href="tel:+36301112223" target="blank">+36304118340</a></p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <p class="contact-value">  <a href="mailto:Balogh.TamasSzilveszter@telekom.hu" target="blank">Balogh.TamasSzilveszter@telekom.hu</a> </p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </div>
+        <p class="contact-value">  <a href="https://telekom.hu" target="blank">Telekom.hu </a> </p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fa fa-map-marker"></i>
+        </div>
+        <p class="contact-value"> <a href="https://goo.gl/maps/6rGVEazRAUAGXTFR9" target="blank">Győr, Hungary</a></p>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://m.me/syncx6" target="_blank" class="fa fa-facebook"></a>
+      <a href="https://wa.me/36304118340" target="_blank" class="fa fa-whatsapp" aria-hidden="true" ></a>
+      <a href="https://t.me/thamas_b" target="_blank" class="fa fa-telegram"></a>
+      <a href="#" class="fa fa-download" aria-hidden="true" onclick="downloadVCard()"></a>
+    </div>
+  </div>
+
+  <script>
+    // Function to encode the image as base64
+    function toBase64(url, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          callback(reader.result);
+        };
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', url);
+      xhr.responseType = 'blob';
+      xhr.send();
+    }
+
+    // Function to generate the vCard data
+    function generateVCard() {
+      const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Balogh Tamás
+ORG:Balogh Tamás
+TEL:+36304118340
+EMAIL:Balogh.TamasSzilveszter@telekom.hu
+URL:https://telekom.hu
+ADR:Győr, Hungary
+END:VCARD`;
+
+      return vcardData;
+    }
+
+    // Function to initiate the vCard download
+    function downloadVCard() {
+      const vcardData = generateVCard();
+
+      // Convert the image to base64
+      toBase64("https://i.imgur.com/iVvXfTK.jpg", function (imageData) {
+        const vcardDataWithImage = vcardData.replace("END:VCARD", `PHOTO;VALUE=URL:${imageData}\r\nEND:VCARD`);
+
+        const blob = new Blob([vcardDataWithImage], { type: 'text/vcard' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'Balogh_Tamas_.vcf'; // You can change the filename if needed
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .card {
+    position: relative;
+    max-width: 310px;
+    margin: 50px auto;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    padding: 15px;
+    box-shadow: 15px 15px 80px 3px black; /* Adding a subtle shadow */
+    background-color: #e20074; /* Magenta color for the main card background */
+  }
+  
+  
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0px; /* Adjust the top position to move the pink band below the "Értékesítő" text */
+    left: 0;
+    right: 0;
+    height: calc(56.33% - 50px); /* Adjust the height to maintain the original proportions */
+    background-color: #f88aa6; /* Light pink color for the top third */
+    
+      border-radius: 10px 10px 20px 20px; /* Adding border-radius to bottom-left and bottom-right corners */
+  
+      
+  }
+  
+  .header {
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+  
+  h1 {
+    margin-bottom: 5px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-top: 0;
+  }
+  
+  .contact-info {
+    margin-top: 25px;
+  }
+  
+  .contact-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .contact-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .contact-item p {
+    flex: 1;
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background-color: #f2f2f2;
+    color: #e20074;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  
+  .contact-item i {
+    font-size: 18px;
+    margin-right: 0px;
+  }
+  
+  .contact-value {
+    /* Add the following CSS to set the width */
+    width: calc(100% - 52px); /* Adjust the value as needed */
+    margin: 0;
+    padding: 8px 36px 8px 16px;
+    border-radius: 30px;
+    background-color: #f2f2f2;
+    color: #e20074;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  
+  .contact-value a {
+    color: #e20074;
+    text-decoration: none;
+  }
+  
+  .contact-value a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+  }
+  
+  .social-links a,
+  .social-links button {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    color: #fff;
+      margin-top: 0px; /* ez tolja el az alsó ikonokat */
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .social-links a:hover,
+  .social-links button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  #profil_pic {
+    filter: grayscale(70%);
+    transform: scale(1.0); /* Alapértelmezett méretezés */
+    transition: transform 0.5s ease-in-out; /* Animáció simítása */
+    border: 2px solid;
+    
+  }
+  
+  #profil_pic:hover {
+    filter: grayscale(20%);
+    transform: scale(1.2); /* Hover esetén nagyobb méretezés */
+      
+   }
+  
+  /* asd sa d */
+  
